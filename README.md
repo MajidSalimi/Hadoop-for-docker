@@ -77,7 +77,7 @@ $docker network create --driver overlay swarm-net
 ### Step5: Build docker image
 Go to your directory of Docker files (with ```cd``` command) and run this command to Build docker image:
 ```
-$docker build --tag newnius/hadoop:3.7 .
+$docker build --tag newnius/hadoop:2.7.4 .
 ```
 It will take a few time to complete.
 
@@ -89,7 +89,7 @@ $docker service create \
 --hostname hadoop-master \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:3.7 
+newnius/hadoop:2.7.4 
 ```
 
 ```
@@ -99,7 +99,7 @@ $docker service create \
 --hostname hadoop-slave1 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:3.7 
+newnius/hadoop:2.7.4 
 ```
 
 ```
@@ -109,7 +109,7 @@ $docker service create \
 --hostname hadoop-slave2 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:3.7 
+newnius/hadoop:2.7.4
 ```
 
 ```
@@ -119,7 +119,7 @@ $docker service create \
 --hostname hadoop-slave3 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:3.7 
+newnius/hadoop:2.7.4
 ```
 
 ##### check your cluster
@@ -165,7 +165,7 @@ sbin/stop-yarn.sh
 
 sbin/stop-dfs.sh
 
-stop-all.sh
+sbin/stop-all.sh
 
 # remove old files of hdfs in host filesystem in all nodes
 
@@ -183,7 +183,7 @@ sbin/start-dfs.sh
 
 sbin/start-yarn.sh 
 
-start-all.sh
+sbin/start-all.sh
 ```
 
 ### Step10: Run a test
