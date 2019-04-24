@@ -77,7 +77,7 @@ $docker network create --driver overlay swarm-net
 ### Step5: Build docker image
 Go to your directory of Docker files (with ```cd``` command) and run this command to Build docker image:
 ```
-$docker build --tag newnius/hadoop:2.7.4 .
+$docker build --tag newnius/hadoop:3.7 .
 ```
 It will take a few time to complete.
 
@@ -89,7 +89,7 @@ $docker service create \
 --hostname hadoop-master \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:2.7.4 
+newnius/hadoop:3.7 
 ```
 
 ```
@@ -99,7 +99,7 @@ $docker service create \
 --hostname hadoop-slave1 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:2.7.4 
+newnius/hadoop:3.7 
 ```
 
 ```
@@ -109,7 +109,7 @@ $docker service create \
 --hostname hadoop-slave2 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:2.7.4
+newnius/hadoop:3.7 
 ```
 
 ```
@@ -119,7 +119,7 @@ $docker service create \
 --hostname hadoop-slave3 \
 --replicas 1 \
 --endpoint-mode dnsrr \
-newnius/hadoop:2.7.4
+newnius/hadoop:3.7 
 ```
 
 ##### check your cluster
@@ -165,7 +165,7 @@ sbin/stop-yarn.sh
 
 sbin/stop-dfs.sh
 
-sbin/stop-all.sh
+stop-all.sh
 
 # remove old files of hdfs in host filesystem in all nodes
 
@@ -183,7 +183,7 @@ sbin/start-dfs.sh
 
 sbin/start-yarn.sh 
 
-sbin/start-all.sh
+start-all.sh
 ```
 
 ### Step10: Run a test
@@ -204,5 +204,7 @@ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.4.jar wordco
 
 Now you can check the web-UI in the: hadoop-master:8088 in your browser.
 
-
-
+If you want to copy your own jar file to the container you can use the following command:
+```
+docker cp desiredJarFile.jar ContaineID:/usr/local/hadoop-2.7.4/share/hadoop/mapreduce/desiredJarFile.jar
+```
