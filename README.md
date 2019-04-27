@@ -183,7 +183,7 @@ sbin/start-dfs.sh
 
 sbin/start-yarn.sh 
 
-start-all.sh
+sbin/start-all.sh
 ```
 
 ### Step10: Run a test
