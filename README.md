@@ -165,7 +165,7 @@ sbin/stop-yarn.sh
 
 sbin/stop-dfs.sh
 
-stop-all.sh
+sbin/stop-all.sh
 
 # remove old files of hdfs in host filesystem in all nodes
 
